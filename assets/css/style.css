@@ -1,0 +1,13 @@
+nav{
+    background-color: seagreen;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    color: seashell;
+}
+
+nav a:hover {
+    color: springgreen;
+}
