@@ -1,13 +1,21 @@
-body{
+body {
     margin: 0;
     padding: 0;
 }
-nav{
+nav {
     background-color: seagreen;
     display: flex;
     justify-content: space-between;
-    align-content: center;
     height: 50px;
+}
+/* #nav {
+    justify-content: left;
+} */
+
+nav h1 {
+    margin: auto;
+    font-size: 2em;
+    color: seashell;
 }
 
 nav a {
