@@ -1,13 +1,44 @@
+body{
+    margin: 0;
+    padding: 0;
+}
 nav{
     background-color: seagreen;
     display: flex;
     justify-content: space-between;
+    align-content: center;
+    height: 50px;
 }
 
 nav a {
     color: seashell;
+    padding: 5px;
+    background-color: steelblue;
+    height: 15px;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 nav a:hover {
     color: springgreen;
+    opacity: .7;
 }
+
+#timer {
+    background-color: seashell;
+    height: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+#time {
+    background-color: springgreen;
+    border-radius: 15px;
+    padding: 1px;
+}
+

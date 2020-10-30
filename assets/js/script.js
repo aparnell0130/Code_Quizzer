@@ -34,31 +34,37 @@ var allQuestions = [
     }
 ];
 
-function startGame(){
-    window.location.assign('./ingame.html');
-    startTimer()
-}
+function startGame() {
+    window.location.assign('./assets/pages/ingame.html');
 
-function startTimer(){
-        // set time left for countdown
-        var secondsLeft = 3;
-        
-        // interval function/ how timer counts down
-        var timerInterval = setInterval(function () {
-          // when timer starts add text to screen
-          timer.textContent = secondsLeft;
-          // when timer starts subtract seconds
-          secondsLeft--;
-      
-          // when time reaches 0
-          if (secondsLeft === 0) {
-            // clear countdown text
-            // start words 
-            // speedRead();
-            // clear timer
-            clearInterval(timerInterval);
-          }
-      
-        }, 1000);
 }
-startBtn.addEventListener('click',startGame)
+startTimer()
+function startTimer() {
+    // set time left for countdown
+    var secondsLeft = 25;
+
+    // interval function/ how timer counts down
+    var timerInterval = setInterval(function () {
+        // when timer starts subtract seconds
+        secondsLeft--;
+        // when timer starts add text to screen
+        timer.textContent = secondsLeft;
+
+
+        // when time reaches 0
+        if (secondsLeft <= 0) {
+            window.location.assign('./highscores.html')
+            clearInterval(timerInterval);
+        }
+
+        if (secondsLeft <= 20) {
+            timer.style.background = 'red';
+        }
+
+        if (secondsLeft < 10) {
+            timer.textContent = "0" + secondsLeft;
+        }
+
+    }, 1000);
+}
+startBtn.addEventListener('click', startGame)
