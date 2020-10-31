@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>    <link rel="stylesheet" href="../css/style.css">
+</head>
+<link rel="stylesheet" href="../css/style.css">
 
 <body>
     <nav>
@@ -12,6 +14,26 @@
         <h1>Game Time</h1>
         <h3 id="timer">Time Left: <span id="time">60</span> sec</h3>
     </nav>
-   <script src="../js/ingame.js"></script> 
+    <div class="container">
+        <h1 id="questions">Question</h1>
+        <div class="choice">
+            <p class="key">A</p>
+            <p class="content" data-index="1">These are your choices</p>
+        </div>
+        <div class="choice">
+            <p class="key">B</p>
+            <p class="content" data-index="2">These are your choices</p>
+        </div>
+        <div class="choice">
+            <p class="key">C</p>
+            <p class="content" data-index="3">These are your choices</p>
+        </div>
+        <div class="choice">
+            <p class="key">D</p>
+            <p class="content" data-index="4">These are your choices</p>
+        </div>
+    </div>
+    <script src="../js/ingame.js"></script>
 </body>
+
 </html>

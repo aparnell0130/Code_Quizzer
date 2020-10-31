@@ -1,44 +1,43 @@
 var timer = document.getElementById('time');
-var startBtn = document.getElementById('start');
+var choices = Array.from(document.querySelector('.content'))
+var question = document.querySelector('#questions');
+var currentQuestion = {};
+var questionArray = [];
+var counter = 0;
+
 
 
 var allQuestions = [
     {
         question: "How old is Abe Lincoln",
-        answers: {
-            a: '100',
-            b: '99',
-            c: '88',
-            d: 'dead'
-        },
-        correctAnswer: 'd'
+        choice1: '100',
+        choice2: '99',
+        choice3: '88',
+        choice4: 'dead',
+        correctAnswer: 4,
     },
     {
         question: "How old is George Washington",
-        answers: {
-            a: '100',
-            b: '99',
-            c: '88',
-            d: 'dead'
-        },
-        correctAnswer: 'd'
+        choice1: '100',
+        choice2: '99',
+        choice3: '88',
+        choice4: 'dead',
+        correctAnswer: 4,
     },
     {
         question: "How old is Teddy Roosevelt",
-        answers: {
-            a: '100',
-            b: '99',
-            c: '88',
-            d: 'dead'
-        },
-        correctAnswer: 'd'
+        choice1: '100',
+        choice2: '99',
+        choice3: '88',
+        choice4: 'dead',
+        correctAnswer: 4,
     }
 ];
 
 startTimer()
 function startTimer() {
     // set time left for countdown
-    var secondsLeft = 25;
+    var secondsLeft = 60;
 
     // interval function/ how timer counts down
     var timerInterval = setInterval(function () {
@@ -50,7 +49,7 @@ function startTimer() {
 
         // when time reaches 0
         if (secondsLeft <= 0) {
-            window.location.assign('./highscores.html')
+            // window.location.assign('./highscores.html')
             clearInterval(timerInterval);
         }
 
@@ -63,4 +62,25 @@ function startTimer() {
         }
 
     }, 1000);
+    questionGen();
+}
+
+function questionGen() {
+    questionArray = [...allQuestions]
+    counter++;
+
+    var index = Math.floor(Math.random() * questionArray.length);
+    currentQuestion = questionArray[index];
+    question.textContent = currentQuestion.question;
+
+    choices.forEach(function (choice) {
+        var number = choice.dataset['index'];
+        choice.textContent = currentQuestion['choice' + number];
+
+        return choice.textContent;
+    }); console.log(choice.textContent)
+
+
+    // questionArray.splice(index, 1)
+    // console.log(currentQuestion.question)
 }
