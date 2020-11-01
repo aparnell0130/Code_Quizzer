@@ -73,7 +73,10 @@ function startTimer() {
 
         // when time reaches 0
         if (secondsLeft <= 0 || questionArray.length + 1 < counter) {
-            window.location.assign('./highscores.html')
+            var score = secondsLeft;
+            console.log(score)
+            localStorage.setItem('newScore', score)
+            // window.location.assign('./highscores.html')
             clearInterval(timerInterval);
         }
 
@@ -124,3 +127,4 @@ choices.forEach(function (choice) {
 
     })
 })
+
