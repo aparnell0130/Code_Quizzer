@@ -76,7 +76,7 @@ function startTimer() {
             var score = secondsLeft;
             console.log(score)
             localStorage.setItem('newScore', score)
-            // window.location.assign('./highscores.html')
+            window.location.assign('./highscores.html')
             clearInterval(timerInterval);
         }
 

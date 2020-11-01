@@ -104,3 +104,13 @@ button:hover {
     height: 60px;
     transition: .5s;
 }
+
+form {
+    display: flex;
+}
+
+input {
+font-size: 20px;
+margin-right: 10px;
+
+}
