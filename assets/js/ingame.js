@@ -93,8 +93,9 @@ function startTimer() {
 }
 
 function questionGen() {
-    questionArray = [...allQuestions]
     counter++;
+    questionArray = [...allQuestions]
+
 
     var index = Math.floor(Math.random() * questionArray.length);
     currentQuestion = questionArray[index];
@@ -109,6 +110,7 @@ function questionGen() {
     console.log(index)
     questionArray.splice(index, 1)
     // console.log(currentQuestion.question)
+
 }
 
 choices.forEach(function (choice) {
@@ -122,7 +124,6 @@ choices.forEach(function (choice) {
         }
         if (selected == currentQuestion.correctAnswer) {
 
-            secondsLeft++
             questionGen();
         }
 
