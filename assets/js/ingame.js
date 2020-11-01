@@ -95,7 +95,7 @@ function startTimer() {
 function questionGen() {
     questionArray = [...allQuestions]
     counter++;
-    console.log(counter)
+
     var index = Math.floor(Math.random() * questionArray.length);
     currentQuestion = questionArray[index];
     question.textContent = currentQuestion.question;
@@ -106,7 +106,7 @@ function questionGen() {
 
     });
 
-
+    console.log(index)
     questionArray.splice(index, 1)
     // console.log(currentQuestion.question)
 }
@@ -115,6 +115,7 @@ choices.forEach(function (choice) {
     choice.addEventListener('click', function (event) {
         var clicked = event.target
         var selected = clicked.dataset['index']
+
         if (selected != currentQuestion.correctAnswer) {
             secondsLeft -= 10;
             questionGen();
