@@ -1,5 +1,5 @@
 var timer = document.getElementById('time');
-var choices = Array.from(document.querySelector('.content'))
+var choices = Array.from(document.querySelectorAll('.content'))
 var question = document.querySelector('#questions');
 var currentQuestion = {};
 var questionArray = [];
@@ -10,9 +10,9 @@ var counter = 0;
 var allQuestions = [
     {
         question: "How old is Abe Lincoln",
-        choice1: '100',
-        choice2: '99',
-        choice3: '88',
+        choice1: '105',
+        choice2: '46',
+        choice3: '65',
         choice4: 'dead',
         correctAnswer: 4,
     },
@@ -25,19 +25,43 @@ var allQuestions = [
         correctAnswer: 4,
     },
     {
-        question: "How old is Teddy Roosevelt",
+        question: "How old is Franklin Roosevelt",
         choice1: '100',
         choice2: '99',
         choice3: '88',
         choice4: 'dead',
         correctAnswer: 4,
+    },
+    {
+        question: "How old is Ronald Regan",
+        choice1: '100',
+        choice2: '99',
+        choice3: '88',
+        choice4: 'dead',
+        correctAnswer: 4,
+    },
+    {
+        question: "How old is John F. Kennedy",
+        choice1: '100',
+        choice2: '99',
+        choice3: '88',
+        choice4: 'dead',
+        correctAnswer: 4,
+    },
+    {
+        question: "How old is Teddy Roosevelt",
+        choice1: '06',
+        choice2: '65',
+        choice3: '32',
+        choice4: 'dead',
+        correctAnswer: 4,
     }
 ];
-
+var secondsLeft = 60;
 startTimer()
 function startTimer() {
     // set time left for countdown
-    var secondsLeft = 60;
+
 
     // interval function/ how timer counts down
     var timerInterval = setInterval(function () {
@@ -48,8 +72,8 @@ function startTimer() {
 
 
         // when time reaches 0
-        if (secondsLeft <= 0) {
-            // window.location.assign('./highscores.html')
+        if (secondsLeft <= 0 || questionArray.length + 1 < counter) {
+            window.location.assign('./highscores.html')
             clearInterval(timerInterval);
         }
 
@@ -68,7 +92,7 @@ function startTimer() {
 function questionGen() {
     questionArray = [...allQuestions]
     counter++;
-
+    console.log(counter)
     var index = Math.floor(Math.random() * questionArray.length);
     currentQuestion = questionArray[index];
     question.textContent = currentQuestion.question;
@@ -77,10 +101,26 @@ function questionGen() {
         var number = choice.dataset['index'];
         choice.textContent = currentQuestion['choice' + number];
 
-        return choice.textContent;
-    }); console.log(choice.textContent)
+    });
 
 
-    // questionArray.splice(index, 1)
+    questionArray.splice(index, 1)
     // console.log(currentQuestion.question)
 }
+
+choices.forEach(function (choice) {
+    choice.addEventListener('click', function (event) {
+        var clicked = event.target
+        var selected = clicked.dataset['index']
+        if (selected != currentQuestion.correctAnswer) {
+            secondsLeft -= 10;
+            questionGen();
+        }
+        if (selected == currentQuestion.correctAnswer) {
+
+            secondsLeft++
+            questionGen();
+        }
+
+    })
+})

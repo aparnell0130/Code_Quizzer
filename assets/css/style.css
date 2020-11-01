@@ -90,6 +90,10 @@ button {
     background-color: slateblue;
     color: seashell;
     font-size: 20px;
+    border: none;    
+}
+
+.startBtn{
     border-radius: 10px;
 }
 
