@@ -1,4 +1,4 @@
-var quizScores = JSON.parse(localStorage.getItem('quizScores'))
+var quizScores = JSON.parse(localStorage.getItem('quizScores')) || [];
 var highScoresList = document.querySelector('#highScoreList');
 // console.log(quizScores)
 function createHighScores() {
