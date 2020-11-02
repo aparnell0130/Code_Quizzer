@@ -10,6 +10,8 @@ function createHighScores() {
         console.log(li, liEl)
 
         highScoresList.appendChild(liEl);
+        highScoresList.firstElementChild.nextElementSibling.style.backgroundColor = 'springgreen'
+        highScoresList.firstElementChild.nextElementSibling.style.borderRadius = '10px'
 
     }
 
