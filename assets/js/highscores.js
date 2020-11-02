@@ -3,30 +3,32 @@ var submitBtn = document.querySelector('#submitBtn');
 var currentScore = document.querySelector('#currentScore');
 var newScore = localStorage.getItem('newScore');
 
-var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+var quizScores = JSON.parse(localStorage.getItem('quizScores')) || [];
 
 var top5 = 5;
 currentScore.innerHTM = "";
 currentScore.textContent = newScore;
 
-console.log(localStorage.getItem('newScore'))
-
 function saveScore() {
 
     var score = {
-        score: newScore,
-        user: initials.value
+        user: initials.value,
+        score: newScore
     }
 
-    highScores.push(score)
+    quizScores.push(score)
 
-    highScores.sort(function (a, b) {
+    quizScores.sort(function (a, b) {
         return b.score - a.score;
     });
     console.log(typeof score)
-    highScores.splice(5);
+    quizScores.splice(5);
 
-    localStorage.setItem('highScores', JSON.stringify(highScores));
+    localStorage.setItem('quizScores', JSON.stringify(quizScores));
 }
+
+
+
 submitBtn.addEventListener('click', saveScore);
-console.log(highScores)
+// console.log(quizScores)
