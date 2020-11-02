@@ -36,7 +36,7 @@ var allQuestions = [
 ## Live game link
 - [Code Quizzer](https://aparnell0130.github.io/Code_Quizzer/)
 
-![ALT Text](assets\images\codeQuizzer.gif)
+![ALT Text](assets/images/codeQuizzer.gif)
 
 ## License
 - N/A 
