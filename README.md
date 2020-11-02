@@ -1,7 +1,7 @@
 # Code_Quizzer
 ## Description
 
-        This application is a quiz about coding. Once you click start, the timer will start and you will be provided a random question with a list of options. If you select the right answer you will move to the next question. If you select the wrong answer, the game will subtract 10 seconds from the timer, then you will move to the next question. If you reach the end of the questions or the time runs out, the game will end and your score will be the time left. You will then move to the high scores screen, where you will be able to enter your initial and save your score.
+This application is a quiz about coding. Once you click start, the timer will start and you will be provided a random question with a list of options. If you select the right answer you will move to the next question. If you select the wrong answer, the game will subtract 10 seconds from the timer, then you will move to the next question. If you reach the end of the questions or the time runs out, the game will end and your score will be the time left. You will then move to the high scores screen, where you will be able to enter your initial and save your score.
 
 ### Question Example Code
 ```JS
