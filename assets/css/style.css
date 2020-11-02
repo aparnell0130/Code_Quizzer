@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: seashell;
 }
 
 * {
@@ -85,8 +86,10 @@ nav a:hover {
 }
 
 button {
-    width: 100px;
-    height: 50px;
+    width: auto;
+    height: auto;
+    min-width: 100px;
+    min-width: 50px;
     background-color: slateblue;
     color: seashell;
     font-size: 20px;
@@ -95,14 +98,20 @@ button {
 
 .startBtn{
     border-radius: 10px;
+    height: 50px;
+    width: 100px;
 }
 
 button:hover {
     cursor: pointer;
     color: springgreen;
-    width: 110px;
-    height: 60px;
+    padding: 20px;
     transition: .5s;
+}
+
+.startBtn:hover{
+    height: 75px;
+    width: 125px;
 }
 
 form {
@@ -113,4 +122,15 @@ input {
 font-size: 20px;
 margin-right: 10px;
 
+}
+
+ul{
+    background-color: seagreen;
+    padding: 5px;
+    list-style: none;
+    border-radius: 10px;
+}
+li{
+    font-size: 30px;
+    text-align: center;
 }

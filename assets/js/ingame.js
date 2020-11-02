@@ -7,54 +7,63 @@ var counter = 0;
 
 
 
+
 var allQuestions = [
     {
-        question: "How old is Abe Lincoln",
-        choice1: '105',
-        choice2: '46',
-        choice3: '65',
-        choice4: 'dead',
+        question: "How would you check for how many items are in an array?",
+        1: 'array.length',
+        2: 'check(array)',
+        3: 'length.array',
+        4: 'array.items',
+        correctAnswer: 1,
+    },
+    {
+        question: 'Array = ["A","B","C","D"] Array.length = ____',
+        1: 'B',
+        2: '4',
+        3: 'C',
+        4: '2',
+        correctAnswer: 2,
+    },
+    {
+        question: "What is js short for?",
+        1: 'Just saying',
+        2: 'Java Script',
+        3: 'JavaScript',
+        4: 'June Solstice',
+        correctAnswer: 3,
+    },
+    {
+        question: "What is => used for in JavaScript?",
+        1: 'arrow function',
+        2: 'equals greater than',
+        3: 'excited face',
+        4: 'next',
+        correctAnswer: 1,
+    },
+    {
+        question: "setInterval is used to start a timer ______ is used to stop it.",
+        1: 'stop-Interval',
+        2: 'stopInterval',
+        3: 'clearInterval',
+        4: 'clear-Interval',
+        correctAnswer: 3,
+    },
+    {
+        question: "What belongs at the top of every HTML page",
+        1: '<html>',
+        2: '<head>',
+        3: '<h1>',
+        4: '<!DOCTYPE html>',
         correctAnswer: 4,
     },
     {
-        question: "How old is George Washington",
-        choice1: '100',
-        choice2: '99',
-        choice3: '88',
-        choice4: 'dead',
-        correctAnswer: 4,
-    },
-    {
-        question: "How old is Franklin Roosevelt",
-        choice1: '100',
-        choice2: '99',
-        choice3: '88',
-        choice4: 'dead',
-        correctAnswer: 4,
-    },
-    {
-        question: "How old is Ronald Regan",
-        choice1: '100',
-        choice2: '99',
-        choice3: '88',
-        choice4: 'dead',
-        correctAnswer: 4,
-    },
-    {
-        question: "How old is John F. Kennedy",
-        choice1: '100',
-        choice2: '99',
-        choice3: '88',
-        choice4: 'dead',
-        correctAnswer: 4,
-    },
-    {
-        question: "How old is Teddy Roosevelt",
-        choice1: '06',
-        choice2: '65',
-        choice3: '32',
-        choice4: 'dead',
-        correctAnswer: 4,
+        question: "score.sort(function (a, b) {return b - a}) is _____",
+        1: 'removing "a" from an array',
+        2: 'sorting an array in reverse order',
+        3: 'removing the first item from an array',
+        4: 'removing the last item from an array',
+        correctAnswer: 2,
     }
 ];
 var secondsLeft = 60;
@@ -72,7 +81,7 @@ function startTimer() {
 
 
         // when time reaches 0
-        if (secondsLeft <= 0 || questionArray.length + 1 < counter) {
+        if (secondsLeft <= 0 || questionArray.length == counter) {
             var score = secondsLeft;
             console.log(score)
             localStorage.setItem('newScore', score)
@@ -103,14 +112,11 @@ function questionGen() {
 
     choices.forEach(function (choice) {
         var number = choice.dataset['index'];
-        choice.textContent = currentQuestion['choice' + number];
+        choice.textContent = currentQuestion[number];
 
     });
 
     console.log(index)
-    questionArray.splice(index, 1)
-    // console.log(currentQuestion.question)
-
 }
 
 choices.forEach(function (choice) {
