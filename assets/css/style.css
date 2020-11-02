@@ -1,13 +1,16 @@
+
 body {
     margin: 0;
     padding: 0;
     background-color: seashell;
 }
 
+/* set all elements font family */
 * {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+/* sets all items in navbar side by side */
 nav {
     background-color: seagreen;
     display: flex;
@@ -22,6 +25,7 @@ nav h1 {
     color: seashell;
 }
 
+/* sets link for button in nav bar */
 nav a {
     color: seashell;
     padding: 5px;
@@ -33,11 +37,13 @@ nav a {
     text-decoration: none;
 }
 
+/* add affect to button while hovering */
 nav a:hover {
     color: springgreen;
     opacity: .7;
 }
 
+/* styling for whole timer*/
 #timer {
     background-color: seashell;
     height: 20px;
@@ -47,12 +53,14 @@ nav a:hover {
     border-radius: 10px;
 }
 
+/* styling for just the time */
 #time {
     background-color: springgreen;
     border-radius: 15px;
     padding: 1px;
 }
 
+/* main container styling */
 .container {
     width: 100vw;
     height: 100vh;
@@ -63,6 +71,7 @@ nav a:hover {
    margin: auto;
 }
 
+/* styling for choices ingame html */
 .choice {
     display: flex;
     background-color: slateblue;
@@ -75,6 +84,7 @@ nav a:hover {
     padding: 2px;
 }
 
+/* styling for choices ingame html while over element*/
 .choice:hover {
     cursor: pointer;
     color: springgreen;
@@ -82,27 +92,32 @@ nav a:hover {
     transition: .5s;
 }
 
+/* pushes answers away from the letters */
 .key {
     margin-right: 10px;
 }
 
+/* button styling for ingame buttons */
 button {
-    width: auto;
+    width: 200px;
     height: auto;
     min-width: 100px;
     min-width: 50px;
     background-color: slateblue;
     color: seashell;
     font-size: 20px;
+    border-radius: 10px;
     border: none;    
 }
 
+/* button styling for start game and save score */
 .startBtn{
     border-radius: 10px;
     height: 50px;
     width: 100px;
 }
 
+/* styling while over buttons ingame html */
 button:hover {
     cursor: pointer;
     color: springgreen;
@@ -110,11 +125,13 @@ button:hover {
     transition: .5s;
 }
 
+/* styling while over buttons start game a nd save score*/
 .startBtn:hover{
     height: 75px;
     width: 125px;
 }
 
+/* puts save button next to input */
 form {
     display: flex;
 }

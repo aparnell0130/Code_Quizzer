@@ -1,13 +1,14 @@
+// global variables
 var timer = document.getElementById('time');
 var choices = Array.from(document.querySelectorAll('.content'))
 var question = document.querySelector('#questions');
 var currentQuestion = {};
-var questionArray = [];
+var allQuestions = [];
 var counter = 0;
 
 
 
-
+// question array with objects
 var allQuestions = [
     {
         question: "How would you check for how many items are in an array?",
@@ -66,10 +67,11 @@ var allQuestions = [
         correctAnswer: 2,
     }
 ];
+
+// set time left for countdown
 var secondsLeft = 60;
 startTimer()
 function startTimer() {
-    // set time left for countdown
 
 
     // interval function/ how timer counts down
@@ -80,20 +82,26 @@ function startTimer() {
         timer.textContent = secondsLeft;
 
 
-        // when time reaches 0
-        if (secondsLeft <= 0 || questionArray.length == counter) {
+        // when time reaches 0 
+        if (secondsLeft <= 0 || allQuestions.length == counter) {
+            // store secondLeft to score
             var score = secondsLeft;
-            console.log(score)
+            // put current score in local storage
             localStorage.setItem('newScore', score)
+            // jump to high scores page
             window.location.assign('./highscores.html')
+            // stop timer
             clearInterval(timerInterval);
         }
 
+        // seconds below 20
         if (secondsLeft <= 20) {
+            // turn bubble around time to red
             timer.style.background = 'red';
         }
 
         if (secondsLeft < 10) {
+            // format time to have minimum 2 digits
             timer.textContent = "0" + secondsLeft;
         }
 
@@ -101,33 +109,38 @@ function startTimer() {
     questionGen();
 }
 
+// generate question function
 function questionGen() {
+    // counter used to exit game 
     counter++;
-    questionArray = [...allQuestions]
 
-
-    var index = Math.floor(Math.random() * questionArray.length);
-    currentQuestion = questionArray[index];
+    // get random question
+    var index = Math.floor(Math.random() * allQuestions.length);
+    currentQuestion = allQuestions[index];
     question.textContent = currentQuestion.question;
 
+    // gets choices for random question
     choices.forEach(function (choice) {
         var number = choice.dataset['index'];
         choice.textContent = currentQuestion[number];
 
     });
 
-    console.log(index)
 }
 
+// adds click event to each choice for question
 choices.forEach(function (choice) {
     choice.addEventListener('click', function (event) {
         var clicked = event.target
         var selected = clicked.dataset['index']
 
+        // if wrong answer
         if (selected != currentQuestion.correctAnswer) {
+            // subtract 10 seconds generate new question
             secondsLeft -= 10;
             questionGen();
         }
+        // if right question generate new question
         if (selected == currentQuestion.correctAnswer) {
 
             questionGen();
