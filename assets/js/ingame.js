@@ -114,18 +114,22 @@ function questionGen() {
     // counter used to exit game 
     counter++;
 
-    // get random question
-    var index = Math.floor(Math.random() * allQuestions.length);
-    currentQuestion = allQuestions[index];
-    question.textContent = currentQuestion.question;
+    // call random question
+    randomQuestion();
 
-    // gets choices for random question
+    // gets each choice for random question
     choices.forEach(function (choice) {
         var number = choice.dataset['index'];
         choice.textContent = currentQuestion[number];
 
     });
 
+    // get random question
+    function randomQuestion() {
+        var index = Math.floor(Math.random() * allQuestions.length);
+        currentQuestion = allQuestions[index];
+        question.textContent = currentQuestion.question;
+    }
 }
 
 // adds click event to each choice for question
