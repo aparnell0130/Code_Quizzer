@@ -5,7 +5,7 @@ var question = document.querySelector('#questions');
 var currentQuestion = {};
 var allQuestions = [];
 var counter = 0;
-
+var rightOrWrong = document.querySelector('.rightOrWrong')
 
 
 // question array with objects
@@ -114,7 +114,8 @@ function questionGen() {
     // counter used to exit game 
 
     counter++;
-    console.log(counter)
+    rightOrWrong.textContent = ""
+    rightOrWrong.style.padding = '0'
     // call random question
     randomQuestion();
 
@@ -145,14 +146,30 @@ choices.forEach(function (choice) {
         if (selected != currentQuestion.correctAnswer) {
             // subtract 10 seconds generate new question
             secondsLeft -= 10;
-            alert("wrong")
+            wrongAnswer()
+
+            setTimeout(function () {
+                questionGen();
+
+            }, 1000)
         }
         // if right question generate new question
         else {
-            alert("right")
+            rightAnswer()
+            setTimeout(function () {
+                questionGen();
+            }, 1000)
         }
-        questionGen();
+
     })
 
 })
 
+function rightAnswer() {
+    rightOrWrong.textContent = "Correct"
+    rightOrWrong.setAttribute('style', 'color: seashell; background-color: green; padding: 10px; border-radius: 5px')
+}
+function wrongAnswer() {
+    rightOrWrong.textContent = "Wrong"
+    rightOrWrong.setAttribute('style', 'color: seashell; background-color: red; padding: 10px; border-radius: 5px')
+} 
