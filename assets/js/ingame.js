@@ -147,19 +147,15 @@ choices.forEach(function (choice) {
             // subtract 10 seconds generate new question
             secondsLeft -= 10;
             wrongAnswer()
-
-            setTimeout(function () {
-                questionGen();
-
-            }, 1000)
         }
         // if right question generate new question
         else {
             rightAnswer()
-            setTimeout(function () {
-                questionGen();
-            }, 1000)
         }
+        setTimeout(function () {
+            questionGen();
+
+        }, 1000)
 
     })
 
