@@ -83,7 +83,7 @@ function startTimer() {
 
 
         // when time reaches 0 
-        if (secondsLeft <= 0 || allQuestions.length == counter) {
+        if (secondsLeft <= 0 || allQuestions.length + 7 < counter) {
             // store secondLeft to score
             var score = secondsLeft;
             // put current score in local storage
@@ -112,8 +112,9 @@ function startTimer() {
 // generate question function
 function questionGen() {
     // counter used to exit game 
-    counter++;
 
+    counter++;
+    console.log(counter)
     // call random question
     randomQuestion();
 
@@ -129,12 +130,14 @@ function questionGen() {
         var index = Math.floor(Math.random() * allQuestions.length);
         currentQuestion = allQuestions[index];
         question.textContent = currentQuestion.question;
+        allQuestions.splice(index, 1)
     }
 }
 
 // adds click event to each choice for question
 choices.forEach(function (choice) {
     choice.addEventListener('click', function (event) {
+        event.preventDefault();
         var clicked = event.target
         var selected = clicked.dataset['index']
 
@@ -142,14 +145,14 @@ choices.forEach(function (choice) {
         if (selected != currentQuestion.correctAnswer) {
             // subtract 10 seconds generate new question
             secondsLeft -= 10;
-            questionGen();
+            alert("wrong")
         }
         // if right question generate new question
-        if (selected == currentQuestion.correctAnswer) {
-
-            questionGen();
+        else {
+            alert("right")
         }
-
+        questionGen();
     })
+
 })
 
