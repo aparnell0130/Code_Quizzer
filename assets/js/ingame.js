@@ -131,6 +131,7 @@ function questionGen() {
         var index = Math.floor(Math.random() * allQuestions.length);
         currentQuestion = allQuestions[index];
         question.textContent = currentQuestion.question;
+        // remove selected question from array so it does not get used again
         allQuestions.splice(index, 1)
     }
 }
@@ -146,25 +147,28 @@ choices.forEach(function (choice) {
         if (selected != currentQuestion.correctAnswer) {
             // subtract 10 seconds generate new question
             secondsLeft -= 10;
+            // apply wrong answer function
             wrongAnswer()
         }
-        // if right question generate new question
+        // if correct apply right answer function
         else {
             rightAnswer()
         }
+        // pause before moving to next question
         setTimeout(function () {
             questionGen();
 
-        }, 1000)
+        }, 750)
 
     })
 
 })
-
+// function for styling correct answer popup 
 function rightAnswer() {
     rightOrWrong.textContent = "Correct"
     rightOrWrong.setAttribute('style', 'color: seashell; background-color: green; padding: 10px; border-radius: 5px')
 }
+// function for styling wrong answer popup
 function wrongAnswer() {
     rightOrWrong.textContent = "Wrong"
     rightOrWrong.setAttribute('style', 'color: seashell; background-color: red; padding: 10px; border-radius: 5px')
